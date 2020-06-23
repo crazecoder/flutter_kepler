@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ChangeListManager">
-    <list default="true" id="a4387c71-4b6a-4cd4-8a2a-3e100cc718ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/libs/JDSDK_h.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/libs/JDSDK_h.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/libs/armeabi-v7a/libCPS.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/libs/armeabi-v7a/libCPS.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/libs/armeabi/libCPS.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/libs/armeabi/libCPS.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/libs/cps_1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/libs/cps_1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/libs/x86/libCPS.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/libs/x86/libCPS.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/wxwx/flutter_kepler/FlutterKeplerHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/wxwx/flutter_kepler/FlutterKeplerHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/wxwx/flutter_kepler/FlutterKeplerPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/wxwx/flutter_kepler/FlutterKeplerPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/FlutterKeplerPlugin.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/FlutterKeplerPlugin.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/Handle/FlutterKeplerHandler.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/Handle/FlutterKeplerHandler.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_kepler.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_kepler.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="flutter_kepler.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/flutter_kepler.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,60 +31,34 @@
     <option name="width" value="1216" />
     <option name="height" value="737" />
   </component>
-  <component name="ProjectId" id="1diwA4SwLAIXgM9qPzgBaf3WbS4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
-    <option name="showLibraryContents" value="true" />
+  <component name="ProjectId" id="1dj9EzIcbjqyKxq7QkzijyV3ZXk" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" />
+    <panes>
+      <pane id="ProjectPane">
+        <option name="show-excluded-files" value="false" />
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
-    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="a4387c71-4b6a-4cd4-8a2a-3e100cc718ea" name="Default Changelist" comment="" />
-      <created>1592921075006</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1592921075006</updated>
-    </task>
-    <servers />
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+    </layout>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="263" key="GridCell.Tab.0.bottom" timestamp="1592927446149">
+    <state x="593" y="111" key="CommitChangelistDialog2" timestamp="1592927719948">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="263" key="GridCell.Tab.0.bottom/0.23.1920.977@0.23.1920.977" timestamp="1592927446149" />
-    <state width="1878" height="263" key="GridCell.Tab.0.center" timestamp="1592927446149">
+    <state x="593" y="111" key="CommitChangelistDialog2/0.23.1920.977@0.23.1920.977" timestamp="1592927719948" />
+    <state x="618" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1592927532297">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state width="1878" height="263" key="GridCell.Tab.0.center/0.23.1920.977@0.23.1920.977" timestamp="1592927446149" />
-    <state width="1878" height="263" key="GridCell.Tab.0.left" timestamp="1592927446148">
-      <screen x="0" y="23" width="1920" height="977" />
-    </state>
-    <state width="1878" height="263" key="GridCell.Tab.0.left/0.23.1920.977@0.23.1920.977" timestamp="1592927446148" />
-    <state width="1878" height="263" key="GridCell.Tab.0.right" timestamp="1592927446149">
-      <screen x="0" y="23" width="1920" height="977" />
-    </state>
-    <state width="1878" height="263" key="GridCell.Tab.0.right/0.23.1920.977@0.23.1920.977" timestamp="1592927446149" />
-    <state x="469" y="150" key="SettingsEditor" timestamp="1592922720099">
-      <screen x="0" y="23" width="1920" height="977" />
-    </state>
-    <state x="469" y="150" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1592922720099" />
-    <state x="618" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1592921079361">
-      <screen x="0" y="23" width="1920" height="977" />
-    </state>
-    <state x="618" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1592921079361" />
+    <state x="618" y="344" key="com.intellij.ide.util.TipDialog/0.23.1920.977@0.23.1920.977" timestamp="1592927532297" />
   </component>
 </project>
