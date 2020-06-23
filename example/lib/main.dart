@@ -69,6 +69,7 @@ class _MyAppState extends State<MyApp> {
               var result = await FlutterKepler.initKepler(
                 appKey: "0f777b0b8bc2db2c3105394cb3700111",
                 appSecret: "eeac919be32c4cdbaaeca71bf8974112",
+                appName: "测试"
               );
               print(result);
             } on Exception {}
@@ -126,6 +127,15 @@ class _MyAppState extends State<MyApp> {
           },
         ),
         FlatButton(
+          child: Text("单品详情(3.0.0新增(可唤起惊喜APP))"),
+          onPressed: () async {
+            var result = await FlutterKepler.openJDDetailPage(
+              sukId: "43684925672",
+            );
+            print(result.toString());
+          },
+        ),
+        FlatButton(
           child: Text("联盟一键加购"),
           onPressed: () async {
             var result = await FlutterKepler.keplerFastPurchase(
@@ -133,8 +143,9 @@ class _MyAppState extends State<MyApp> {
               appID: "",
               skuID: "",
               refer: "",
+              subUnionId: ""
             );
-            print(result.errorCode);
+            print(result.toString());
           },
         ),
         // FlatButton(

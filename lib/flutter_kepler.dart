@@ -16,9 +16,9 @@ class FlutterKepler {
 
 // 初始化
   static Future<ResultModel> initKepler(
-      {@required String appKey, @required String appSecret}) async {
+      {@required String appKey, @required String appSecret,@required String appName}) async {
     Map result = await _channel
-        .invokeMethod("initKepler", {"appKey": appKey, "appSecret": appSecret});
+        .invokeMethod("initKepler", {"appKey": appKey, "appSecret": appSecret,"appName":appName});
     return ResultModel(
       result[KeplerConstKey.errorCode],
       result[KeplerConstKey.errorMessage],
@@ -35,6 +35,11 @@ class FlutterKepler {
   static keplerPageWithURL({@required String url, Map userInfo}) {
     _channel
         .invokeMethod("keplerPageWithURL", {"url": url, "userInfo": userInfo});
+  }
+  //单品SukId
+  static openJDDetailPage({@required String sukId, Map userInfo}) {
+    _channel
+        .invokeMethod("openJDDetailPage", {"sukId": sukId, "userInfo": userInfo});
   }
 
   ///
@@ -119,9 +124,10 @@ class FlutterKepler {
     @required String appID,
     @required String skuID,
     @required String refer,
+    @required String subUnionId,
   }) async {
     Map result = await _channel.invokeMethod("keplerFastPurchase",
-        {"unionID": unionID, "appID": appID, "skuID": skuID, "refer": refer});
+        {"unionID": unionID, "appID": appID, "skuID": skuID, "refer": refer,"subUnionId":subUnionId});
     return ResultModel(
       result[KeplerConstKey.errorCode],
       result[KeplerConstKey.errorMessage],

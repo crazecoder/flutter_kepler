@@ -53,6 +53,8 @@ public class FlutterKeplerPlugin implements MethodCallHandler {
       handle.setKeplerOpenByH5(call, result);
     } else if(call.method.equals("setKeplerJDappBackTagID")){
       handle.setKeplerJDappBackTagID(call, result);
+    } else if(call.method.equals("openJDDetailPage")){
+      handle.openJDDetailPage(call, result);
     } else {
       result.notImplemented();
     }

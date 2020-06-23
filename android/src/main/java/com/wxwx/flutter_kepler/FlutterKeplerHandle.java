@@ -133,6 +133,10 @@ public class FlutterKeplerHandle {
     public void initKepler(MethodCall call, Result result){
         String appKey = call.argument("appKey");
         String appSecret = call.argument("appSecret");
+        String appName = call.argument("appName");
+        KeplerGlobalParameter.getSingleton().setJDappBackTagID(appName);
+        String version =KeplerApiManager.getKeplerVersion();
+        Log.d("开普勒版本号:",version);
         KeplerApiManager.asyncInitSdk(register.activity().getApplication(), appKey, appSecret, new AsyncInitListener() {
             @Override
             public void onSuccess() {
@@ -147,6 +151,7 @@ public class FlutterKeplerHandle {
             }
         });
     }
+
 
     /**
      * 授权登陆
@@ -204,6 +209,21 @@ public class FlutterKeplerHandle {
         try {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
             mKelperTask= KeplerApiManager.getWebViewService().openJDUrlPage(url, customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
+        } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
+            result.success(PluginResponse.failed(e).toMap());
+        }
+    }
+    /**
+     * 通过skuId方式打开单品详情
+     * @param call
+     * @param result
+     */
+    public void openJDDetailPage(MethodCall call, Result result){
+        String sukId = call.argument("sukId");
+        Map<String, Object> info = (Map)call.argument("userInfo");
+        try {
+            KeplerAttachParameter customerInfo = getAttachParameter(info);
+            mKelperTask= KeplerApiManager.getWebViewService().openProductDetailPage(sukId, customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
             result.success(PluginResponse.failed(e).toMap());
         }
@@ -323,13 +343,15 @@ public class FlutterKeplerHandle {
         String unionID = call.argument("unionID");
         String appId = call.argument("appId");
         String skuID = call.argument("skuID");
-        String refer = call.argument("refer");
+        String refer = call.argument("subUnionId");
+        String subUnionId = call.argument("subUnionId");
 
         KeplerApiManager.getWebViewService().addToCart(register.activity(),
                 unionID,
                 appId,
                 skuID,
-                refer, new ActionCallBck() {
+                refer,
+                subUnionId,new ActionCallBck() {
                     @Override
                     public boolean onDateCall(int key, final String info) {
                         Map<String, Object> res = new HashMap<>();

@@ -29,7 +29,8 @@
 //                 });
 //    }];
 //
-    
+    [KeplerApiManager sharedKPService].JDappBackTagID = call.arguments[@"appName"];
+
     [[KeplerApiManager sharedKPService]asyncInitSdk:appKey secretKey:appSecret sucessCallback:^(){
         //
         result(@{
@@ -86,7 +87,18 @@
     NSDictionary *userInfo = [FlutterKeplerTools nullToNil:call.arguments[@"userInfo"]];
     [[KeplerApiManager sharedKPService] openItemDetailWithSKU:sku sourceController:rootViewController jumpType:jumpType userInfo:userInfo];
 }
-
+/**
+*  通过SKU打开Kepler单品页
+*  @param sku              商品SKU
+*/
+//- (void)keplerOpenJDDetailPage:(FlutterMethodCall *)call result:(FlutterResult)result {
+//    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+//    NSString *sukId = call.arguments[@"sukId"];
+//    //    NSInteger jumpType = [call.arguments[@"jumpType"] integerValue];
+//    NSInteger jumpType = [[NSNumber numberWithInt:1] integerValue];
+//    NSDictionary *userInfo = [FlutterKeplerTools nullToNil:call.arguments[@"userInfo"]];
+//    [[KeplerApiManager sharedKPService] openItemDetailWithSKU:sukId sourceController:rootViewController jumpType:jumpType userInfo:userInfo];
+//}
 //打开订单列表 （支持Native && H5)
 - (void)keplerOpenOrderList:(FlutterMethodCall *)call result:(FlutterResult)result {
     UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;

@@ -56,6 +56,9 @@
       [_keplerHandler keplerLoginWithSuccess:call result:result];
   }else if ([@"setKeplerOpenByH5" isEqualToString:call.method]) {
       [_keplerHandler setKeplerOpenByH5:call result:result];
+  } else if ([@"openJDDetailPage" isEqualToString:call.method]) {
+//      [_keplerHandler setKeplerOpenByH5:call result:result];
+      result(FlutterMethodNotImplemented);
   } else {
     result(FlutterMethodNotImplemented);
   }
