@@ -167,6 +167,7 @@
  refer refer (原生页面传域名+文章编号),viewController 当前的视图控制器,completionHandler 返回
  
  */
+ /*
 - (void)keplerFastPurchase:(FlutterMethodCall *)call result:(FlutterResult)flutterResult {
     UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     NSString *unionID = call.arguments[@"unionID"];
@@ -187,7 +188,7 @@
         }
     }];
 }
-
+*/
 
 #pragma mark - 辅助功能
 //静态化检测更新

@@ -71,6 +71,7 @@ class _MyAppState extends State<MyApp> {
                 appSecret: "eeac919be32c4cdbaaeca71bf8974112",
                 appName: "测试"
               );
+              FlutterKepler.setKeplerOpenByH5(isOpenByH5: false);
               print(result);
             } on Exception {}
           },
@@ -79,7 +80,7 @@ class _MyAppState extends State<MyApp> {
           child: Text("打开Url"),
           onPressed: () {
             FlutterKepler.keplerPageWithURL(
-              url: "https://item.jd.com/10510526268.html",
+              url: "https://union-click.jd.com/jdc?e=1&p=AyIGZRtfHAQWBFQZXhIyEgZUGFkVAhADUR5fFwEiQwpDBUoyS0IQWhkeHAxcDUQNQlZNGA5OREdcThkNXg9JHUtCCUZVV1hWC1UaWhYAEgdXH18QBhAEQltXYXtiYiJCMFJ2a3szbzhiQWZYLUM%2FdlBUZw1GKHcDekEiUCt8ZUtBHG8TFGZwBilbLHdYd2VUbx1hXXF3NhosQnV7fzNsOGpdZH4PQz9PclRkN3w4QQFueSVEK3F2SFIQbTltYGV0Ml8vfGFiZAxoB2FaZmEiaCBLdk13N28%2FalxxTyJoIHZ5UnNXczxhYWFCIkEvAQBnNyl%2BDn5jU3wAfjBRfXtgHRwLSFlqdxMXVyUAEwZUHl4VBxIBZRtaFAEWDlQdWhAyIgdUKxp7CxMBVx1eJQATBlUfUhILEAFlG1wUBBsAUhJdFQIQBmUbUxEyT1MNUAJBXVtSZStrFjISN2UbWCUBIlk7GggVVxsFBR41T1pNAAIfHk9sEgVTHFITAhI3VxpaFwA%3D",
             );
           },
         ),
