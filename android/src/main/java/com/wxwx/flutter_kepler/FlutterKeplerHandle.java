@@ -3,14 +3,10 @@ package com.wxwx.flutter_kepler;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.util.Log;
-import android.webkit.WebChromeClient;
-import android.webkit.WebViewClient;
-import android.widget.Toast;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.MethodCall;
 import java.util.HashMap;
-import android.app.AlertDialog;
 import static com.wxwx.flutter_kepler.PluginConstants.*;
 import static com.wxwx.flutter_kepler.PluginUtil.*;
 
@@ -101,7 +97,7 @@ public class FlutterKeplerHandle {
 
     /**
      * 将map参数构造为 KeplerAttachParameter 对象
-     * @param map
+     * @param info
      * @return
      */
     private KeplerAttachParameter getAttachParameter(Map<String, Object> info) throws JSONException, KeplerAttachException, KeplerBufferOverflowException{
@@ -196,6 +192,7 @@ public class FlutterKeplerHandle {
      */
     public void keplerCancelAuth(MethodCall call, Result result){
         KeplerApiManager.getWebViewService().cancelAuth(register.activity());
+        result.success(null);
     }
 
     /**
@@ -208,9 +205,40 @@ public class FlutterKeplerHandle {
         Map<String, Object> info = (Map)call.argument("userInfo");
         try {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
-            mKelperTask= KeplerApiManager.getWebViewService().openJDUrlPage(url, customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
+            mKelperTask= KeplerApiManager.getWebViewService().openJDUrlPage(url, customerInfo,register.activity(),new OpenAppAction() {
+                @Override
+                public void onStatus(final int status) {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            if (status == OpenAppAction.OpenAppAction_start) {//开始状态未必一定执行，
+                                dialogShow();
+                                return;
+                            }else {
+                                mKelperTask = null;
+                                dialogDiss();
+                            }
+                            String msg = "";
+                            if(status == OpenAppAction.OpenAppAction_result_NoJDAPP) {
+                                msg = "您未安装京东app";
+                                result.success(PluginResponse.failed(msg).toMap());
+                            }else if(status == OpenAppAction.OpenAppAction_result_BlackUrl){
+                                msg = "url不在白名单";
+                                result.success(PluginResponse.failed(msg).toMap());
+                            }else if(status == OpenAppAction.OpenAppAction_result_NoJXApp){
+                                msg = "您未安装京喜app";
+                                result.success(PluginResponse.failed(msg).toMap());
+                            }else{
+                                result.success(PluginResponse.success(null));
+                            }
+
+                        }
+                    });
+                }
+            },TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
     /**
@@ -225,7 +253,7 @@ public class FlutterKeplerHandle {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
             mKelperTask= KeplerApiManager.getWebViewService().openProductDetailPage(sukId, customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -238,7 +266,7 @@ public class FlutterKeplerHandle {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
             mKelperTask= KeplerApiManager.getWebViewService().openNavigationPage(customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -252,7 +280,7 @@ public class FlutterKeplerHandle {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
             mKelperTask= KeplerApiManager.getWebViewService().openItemDetailsPage(sku, customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -265,7 +293,7 @@ public class FlutterKeplerHandle {
             KeplerAttachParameter customerInfo = getAttachParameter(info);
             mKelperTask= KeplerApiManager.getWebViewService().openOrderListPage(customerInfo,register.activity(), mOpenAppAction,TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -282,7 +310,7 @@ public class FlutterKeplerHandle {
             mKelperTask= KeplerApiManager.getWebViewService().openSearchPage(
                     searchKey, customerInfo, register.activity(), mOpenAppAction, TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -297,7 +325,7 @@ public class FlutterKeplerHandle {
             mKelperTask= KeplerApiManager.getWebViewService().openCartPage(
                     customerInfo, register.activity(), mOpenAppAction, TIMEOUT);
         } catch (KeplerBufferOverflowException | KeplerAttachException | JSONException e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -327,7 +355,7 @@ public class FlutterKeplerHandle {
                 }
             });
         } catch (Exception e) {
-            result.success(PluginResponse.failed(e).toMap());
+            result.success(PluginResponse.error(e).toMap());
         }
     }
 
@@ -388,6 +416,7 @@ public class FlutterKeplerHandle {
     public void setKeplerOpenByH5(MethodCall call, Result result){
         boolean isOpenByH5 = call.argument("isOpenByH5");
         KeplerGlobalParameter.getSingleton().setIsOpenByH5Mode(isOpenByH5);
+        result.success(null);
     }
 
     /**
@@ -398,6 +427,7 @@ public class FlutterKeplerHandle {
     public void setKeplerJDappBackTagID(MethodCall call, Result result){
         String JDappBackTagID = call.argument("JDappBackTagID");
         KeplerGlobalParameter.getSingleton().setJDappBackTagID(JDappBackTagID);
+        result.success(null);
     }
 
 }

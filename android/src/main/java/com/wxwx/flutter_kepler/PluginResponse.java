@@ -21,9 +21,14 @@ public class PluginResponse implements Serializable {
         return new PluginResponse("0", "成功", obj);
     }
 
-    public static PluginResponse failed(Exception e){
+    public static PluginResponse error(Exception e){
         return new PluginResponse(ERROR_CODE_EXCEPTION, "异常中止: " + e.getMessage(), null);
     }
+
+    public static PluginResponse failed(String msg){
+        return new PluginResponse("-1", msg, null);
+    }
+
 
     public PluginResponse(String errorCode, String errorMessage, Object data) {
         this.errorCode = errorCode;

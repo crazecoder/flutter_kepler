@@ -32,9 +32,13 @@ class FlutterKepler {
   /// 禁止传参带入以下符号：   =#%&+?<{}
   ///
   ///
-  static keplerPageWithURL({@required String url, Map userInfo}) {
-    _channel
+  static Future<ResultModel> keplerPageWithURL({@required String url, Map userInfo}) async{
+    Map result = await _channel
         .invokeMethod("keplerPageWithURL", {"url": url, "userInfo": userInfo});
+    return ResultModel(
+      result[KeplerConstKey.errorCode],
+      result[KeplerConstKey.errorMessage],
+    );
   }
   //单品SukId
   static openJDDetailPage({@required String sukId, Map userInfo}) {

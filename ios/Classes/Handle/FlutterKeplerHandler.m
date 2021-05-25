@@ -38,7 +38,6 @@
                  FlutterKeplerConstKey_ErrorMessage:@"success",
                  });
     }failedCallback:^(NSError *error){
-        //
         result(@{
                  FlutterKeplerConstKey_ErrorCode:[NSString stringWithFormat: @"%ld", error.code],
                  FlutterKeplerConstKey_ErrorMessage:error.localizedDescription,
@@ -56,12 +55,24 @@
  *
  */
 - (void)keplerPageWithURL:(FlutterMethodCall *)call result:(FlutterResult)result {
-    NSString *url = call.arguments[@"url"];
-    //    NSInteger jumpType = [call.arguments[@"jumpType"] integerValue];
-    NSInteger jumpType = [[NSNumber numberWithInt:1] integerValue];
-    NSDictionary *userInfo = [FlutterKeplerTools nullToNil:call.arguments[@"userInfo"]];
-    UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-    [[KeplerApiManager sharedKPService] openKeplerPageWithURL:url sourceController:rootViewController jumpType:jumpType userInfo:userInfo];
+    if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"openapp.jdmobile://"]]]){
+        NSString *url = call.arguments[@"url"];
+        //    NSInteger jumpType = [call.arguments[@"jumpType"] integerValue];
+        NSInteger jumpType = [[NSNumber numberWithInt:1] integerValue];
+        NSDictionary *userInfo = [FlutterKeplerTools nullToNil:call.arguments[@"userInfo"]];
+        UIViewController *rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+        [[KeplerApiManager sharedKPService] openKeplerPageWithURL:url sourceController:rootViewController jumpType:jumpType userInfo:userInfo];
+        result(@{
+                 FlutterKeplerConstKey_ErrorCode:@"0",
+                 FlutterKeplerConstKey_ErrorMessage:@"success",
+                 });
+    }else{
+        result(@{
+                 FlutterKeplerConstKey_ErrorCode:@"-1",
+                 FlutterKeplerConstKey_ErrorMessage:@"您未安装京东app",
+                 });
+    }
+    
 }
 /**
  *  打开导航页
